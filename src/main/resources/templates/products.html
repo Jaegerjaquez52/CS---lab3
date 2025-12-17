@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"> <head>
+    <title>Список товарів</title>
+</head>
+<body>
+
+<div style="float: right;">
+        <span sec:authorize="isAuthenticated()">
+            Привіт, <span sec:authentication="name">User</span>!
+            <form th:action="@{/logout}" method="post" style="display:inline;">
+                <button type="submit">Вийти</button>
+            </form>
+        </span>
+    <span sec:authorize="isAnonymous()">
+            <a href="/login">Увійти</a>
+        </span>
+</div>
+
+<h1>Список товарів</h1>
+
+<div sec:authorize="hasRole('ADMIN')">
+    <a href="/products/new" class="button">Додати новий товар</a>
+    <br><br>
+</div>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Назва</th>
+        <th>Опис</th>
+        <th>Ціна</th>
+        <th sec:authorize="hasRole('ADMIN')">Дії</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${listProducts}">
+        <td th:text="${product.id}">ID</td>
+        <td th:text="${product.name}">Назва</td>
+        <td th:text="${product.description}">Опис</td>
+        <td th:text="${product.price}">Ціна</td>
+
+        <td sec:authorize="hasRole('ADMIN')">
+            <a th:href="@{/products/edit/{id}(id=${product.id})}">Редагувати</a>
+            &nbsp;&nbsp;
+            <a th:href="@{/products/delete/{id}(id=${product.id})}"
+               onclick="return confirm('Ви впевнені, що хочете видалити цей товар?')">Видалити</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
