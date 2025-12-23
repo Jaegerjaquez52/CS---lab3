@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController // Автоматично перетворює відповіді в JSON
-@RequestMapping("/api/products") // Базова адреса: http://localhost:8080/api/products
+@RestController
+@RequestMapping("/api/products")
 public class ProductRestController {
 
     private final ProductService productService;

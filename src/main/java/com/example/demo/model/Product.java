@@ -22,7 +22,7 @@ public class Product {
     public Product() {
     }
 
-    // --- ГЕТТЕРИ ТА СЕТТЕРИ (Це те, що не міг знайти компілятор) ---
+    // --- ГЕТТЕРИ ТА СЕТТЕРИ ---
 
     public Long getId() {
         return id;

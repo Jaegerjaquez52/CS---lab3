@@ -17,7 +17,7 @@ public class AppUser {
     private String password;
 
     @Column(nullable = false)
-    private String role; // Наприклад: "ROLE_USER" або "ROLE_ADMIN"
+    private String role;
 
     // Геттери та Сеттери
     public Long getId() { return id; }
