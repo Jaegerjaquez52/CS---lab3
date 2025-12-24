@@ -2,10 +2,15 @@ package com.example.demo.service;
 
 import com.example.demo.model.AppUser;
 import com.example.demo.repository.AppUserRepository;
+// Внутрішній клас Spring Security, який представляє "стандартного" користувача
 import org.springframework.security.core.userdetails.User;
+// Інтерфейс, який описує, як виглядає користувач для системи безпеки (має методи getPassword(), getAuthorities() тощо)
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService; // ВАЖЛИВИЙ ІМПОРТ
+// Головний інтерфейс, який ми мусимо реалізувати, щоб Spring знав, де шукати юзерів
+import org.springframework.security.core.userdetails.UserDetailsService; 
+// Спеціальна помилка, яку треба кидати, якщо юзера не знайдено
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+// Анотація, щоб Spring створив екземпляр цього класу і тримав його в пам'яті
 import org.springframework.stereotype.Service;
 
 @Service
