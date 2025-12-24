@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+// Бібліотека JPA (Jakarta Persistence API) для перетворення Java-класів у таблиці бази даних
 import jakarta.persistence.*;
 
 @Entity
