@@ -1,11 +1,17 @@
 package com.example.demo;
 
+// Бібліотека для запуску Spring Boot застосунку 
 import org.springframework.boot.SpringApplication;
+// Бібліотека для автоматичного налаштування Spring 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+// Модель користувача та Репозиторій для роботи з БД
 import com.example.demo.model.AppUser;
 import com.example.demo.repository.AppUserRepository;
+// Бібліотека для виконання коду одразу після старту сервера
 import org.springframework.boot.CommandLineRunner;
+// Бібліотека для оголошення компонентів, якими керує Spring 
 import org.springframework.context.annotation.Bean;
+// Бібліотека для шифрування паролів 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
